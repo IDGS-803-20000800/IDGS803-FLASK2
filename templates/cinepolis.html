@@ -1,0 +1,40 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <form class = "form-horizontal" action = "/procesar" method="post">
+                <div class="control-group">
+                    <label for="" class="control-label">Nombre</label>
+                    <div class="controls">
+                        <input type="text" name="txtNombre" placeholder="Nombre" value="">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Cantidad de compradores</label>
+                    <div class="controls">
+                        <input type="numeric" name="numCompradores" placeholder="Compradores" value="">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Tarjeta Cineco</label>
+                    <div class="controls">
+                        <input type="radio" name="tarjetaCineco" value="1">Si
+                        <input type="radio" name="tarjetaCineco" value="0">No
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Cantidad de boletos</label>
+                    <div class="controls">
+                        <input type="numeric" name="numBoletos" placeholder="Boletos" value="">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn btn-default btn-primary">Procesar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

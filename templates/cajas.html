@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {% from "_macros.html" import render_input %}
+    <form name="form1" method="post" action="/cajas_renderizadas">
+        <div class="control_group">
+            <div class="controls">
+                {{render_input("txtNum", "Número", type="number")}}
+
+                <button type="submit" class="btn btn-default btn-primary">
+                    <i class="icon-book icon-white"></i>Crear cajas
+                </button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
