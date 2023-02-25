@@ -14,6 +14,13 @@
             {{field(**kwargs)|safe}}
         </div>
     </div>
+    {% if field.errors %}
+        <ul>
+            {% for error in field %}
+                <li style="color: red;">{{error}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endmacro %}
 
 {% macro render_boxes(numCajas) %}
