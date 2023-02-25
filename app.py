@@ -44,16 +44,18 @@ def alumnos():
         print(alum_form.nombre.data)
     return render_template("alumnos.html", form = alum_form)
 
+# Ejercicio 1
 @app.route("/", methods = ["GET", "POST"])
 def cajasDinamicas():
-    return render_template("cajas.html")
+    cajas_form = forms.UserForm(request.form)
+    return render_template("cajas.html", form = cajas_form)
 
-# Ejercicio 1
 @app.route("/cajas_renderizadas", methods=["GET", "POST"])
 def cajasRenderizadas():
+    cajas_form = forms.UserForm(request.form)
     numCajas = request.form.get("txtNumCajas")
     numCajas = int(numCajas)
-    return render_template("cajas_renderizadas.html", numCajas = numCajas)
+    return render_template("cajas_renderizadas.html", numCajas = numCajas, form = cajas_form)
 
 @app.route("/resultado_cajas", methods=["GET", "POST"])
 def resultadoCajas():
