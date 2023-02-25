@@ -16,9 +16,15 @@
     </div>
 {% endmacro %}
 
-{% macro render_boxes(numCajas, i = 1) %}
-    {% for x in range(numCajas) %}
-        
-        {{render_input("n" + {{i}})}
+{% macro render_boxes(numCajas) %}
+    {% for num in range(numCajas) %}
+        {{render_input("txtN{}".format(loop.index), "Número {}".format(loop.index), "number")}}
+
     {% endfor %}
+    <div class="control-group">
+        <label for="txtTotalCajas" class="control-label">Total de cajas</label>
+        <div class="controls">
+            <input type="number" name="txtTotalCajas" value="{{numCajas}}" readonly="readonly">
+        </div>
+    </div>
 {% endmacro %}

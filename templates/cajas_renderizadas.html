@@ -2,6 +2,14 @@
 
 {% block content %}
     {% from "_macros.html" import render_boxes %}
-
-    {{render_boxes({{num}})}}
+    <form name="form1" method="post" action="/resultado_cajas">
+        <div class="control_group">
+            <div class="controls">
+                {{render_boxes(numCajas)}}
+                <button type="submit" class="btn btn-default btn-primary">
+                    <i class="icon-book icon-white"></i>Calcular
+                </button>
+            </div>
+        </div>
+    </form>
 {% endblock %}

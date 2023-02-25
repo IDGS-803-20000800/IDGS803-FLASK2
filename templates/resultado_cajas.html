@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div>    
+        <h3>La lista de números es: {{lista}}</h3> <br>
+        <h3>El valor máximo es: {{maximo}}</h3> <br>
+        <h3>El valor mínimo es: {{minimo}}</h3> <br>
+        <h3>El valor promedio es: {{promedio}}</h3> <br>
+        <h3>Los valores duplicados son:</h3> <br>
+        {% for duplicado in duplicados %}
+            <h3>El número {{duplicado}} que se repite {{duplicados[duplicado]}} veces</h3> <br>
+        {% endfor %}
+    </div>
+{% endblock %}
