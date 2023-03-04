@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, make_response, flash
 from collections import Counter
 from flask_wtf.csrf import CSRFProtect
+from googletrans import Translator
 import forms
 
 app = Flask(__name__)
@@ -81,6 +82,20 @@ def resultadoCajas():
         if valor != 1:
             duplicados[clave] = valor
     return render_template("resultado_cajas.html", lista = lista, maximo = maximo, minimo = minimo, promedio = promedio, duplicados = duplicados)
+
+@app.route("/traductor", methods=["GET", "POST"])
+def traductor():
+    traductor_form = forms.UserForm(request.form)
+    translator = Translator()
+    diccionario = {}
+    palabraEspanol = request.form.get("txtEspanol")
+    palabraIngles = request.form.get("txtIngles")
+    diccionario[palabraEspanol] = palabraIngles
+    return render_template("traductor.html")
+
+@app.route("/resistencia", methods=["GET", "POST"])
+def resistencia():
+    return render_template("resistencia.html")
 
 if __name__ == "__main__":
     csrf.init_app(app)
